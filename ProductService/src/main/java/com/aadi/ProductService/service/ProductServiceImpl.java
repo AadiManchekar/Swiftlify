@@ -3,6 +3,7 @@ package com.aadi.ProductService.service;
 import static org.springframework.beans.BeanUtils.copyProperties;
 
 import com.aadi.ProductService.entity.Product;
+import com.aadi.ProductService.exception.ProductServiceCustomException;
 import com.aadi.ProductService.model.ProductRequest;
 import com.aadi.ProductService.model.ProductResponse;
 import com.aadi.ProductService.repository.ProductRepository;
@@ -39,7 +40,10 @@ public class ProductServiceImpl implements ProductService {
     Product product =
         productRepository
             .findById(productId)
-            .orElseThrow(() -> new RuntimeException("Product with given id not found"));
+            .orElseThrow(
+                () ->
+                    new ProductServiceCustomException(
+                        "Product with given id not found", "PRODUCT_NOT_FOUND"));
 
     ProductResponse productResponse = new ProductResponse();
     copyProperties(product, productResponse);
