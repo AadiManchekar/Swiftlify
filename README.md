@@ -12,3 +12,5 @@ docker exec -it mysql_product_service mysql -u root -p
 type root
 
 CREATE DATABASE productdb;
+
+CREATE DATABASE orderdb;
