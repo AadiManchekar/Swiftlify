@@ -1,0 +1,15 @@
+
+server:
+  port: 9296
+
+spring:
+  application:
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/AadiManchekar/ShopaholicX-spring-app-config
+          clone-on-start: true
+          clone-depth: 1
+          default-branch: Swiftlify-config

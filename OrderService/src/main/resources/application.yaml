@@ -9,7 +9,9 @@ spring:
     password: root
   jpa:
     hibernate:
-      ddl-auto: update 
+      ddl-auto: update
     show-sql: true
   application:
     name: ORDER-SERVICE
+  config:
+    import: configserver:http://localhost:9296
